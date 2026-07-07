@@ -1,0 +1,236 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f5f7;
+    display: flex;
+    justify-content: center;
+    color: #1f2430;
+    min-height: 100vh;
+}
+
+.app {
+    width: 100%;
+    max-width: 400px;
+    min-height: 100vh;
+    background: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon-img {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 40;
+}
+
+.menu-toggle:checked ~ .app .overlay{
+    opacity:1;
+    pointer-events:all;
+}
+
+.sidebar{
+    position:fixed;
+    top: 0;
+    left: -280px;
+    width: 260px;
+    max-width:78%;
+    height: 100%;
+    background:#fff;
+    z-index:50;
+    display:flex;
+    flex-direction:column;
+    padding:24px 0;
+}
+
+.menu-toggle:checked ~ .app .sidebar{
+    left:0;
+}
+
+.sidebar-header{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 20px 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom:10px;
+}
+
+.sidebar-header img{
+    width:46px;
+    height:46px;
+    object-fit:cover;
+}
+
+.sidebar-header h2{
+    font-size:15px;
+    font-weight:700;
+}
+
+.sidebar-header p{
+    font-size: 12px;
+    color:#6b7280;
+}
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+}
+
+.sidebar nav a{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    padding: 14px 22px;
+    text-decoration:none;
+    color: #1f2430;
+    font-size:15px;
+    font-weight: 500;
+    transition:.15s;
+}
+
+.sidebar nav a:hover{
+    background:#f4f2ff;
+}
+
+.topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px 10px;
+}
+
+.icon-btn{
+    background:none;
+    border: none;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    width:34px;
+    height:34px;
+    font-size:22px;
+}
+
+.icon-btn:hover{
+    background:#f0f0f0;
+    border-radius:8px;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+}
+
+main{
+    flex: 1;
+    padding: 0 20px 90px;
+}
+
+h2{
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.bottom-nav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background: #16A34A;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 4px 12px;
+    box-sizing: border-box;
+}
+
+.bottom-nav a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+    font-size: 10.5px;
+}
+
+.bottom-nav a.active{
+    color: white;
+}
+
+.nav-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.notification-icon {
+    width: 30px;
+    height: 30px;
+}
+
+@media (min-width:769px){
+    body{
+        padding: 20px 0;
+        align-items:flex-start;
+    }
+
+    .app{
+        height: 98vh;
+        overflow-y: auto;
+        padding-bottom:70px;
+    }
+}
+
+@media (max-width:768px){
+    .app{
+        max-width:100%;
+        box-shadow:none;
+        padding-bottom:70px;
+    }
+
+    .bottom-nav{
+        max-width: 100%;
+    }
+
+    .sidebar nav{
+        flex-direction:column;
+    }
+}
+
+@media (max-width:480px){
+    .logo{
+        font-size: 20px;
+    }
+    .icon-btn{
+        font-size:20px;
+    }
+    .topbar{
+        padding: 14px 15px 8px;
+    }
+
+    main{
+        padding: 0 15px 20px;
+    }
+}
+
+@media(max-width:360px){
+    .logo{
+        font-size: 18px;
+    }
+}
